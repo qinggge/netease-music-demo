@@ -7,6 +7,19 @@
     <title>管理页面</title>
     <link rel="stylesheet" href="./css/default.css">
 </head>
+<script>
+    function x() {
+        var a = 1
+        return function y() {
+            a += 1
+            return a
+            console.log(a)
+        }
+    }
+
+    var z = x()
+    z()
+</script>
 
 <body>
 
@@ -38,25 +51,26 @@
         </aside>
         <main>
             <form class="form">
+                <h1>新建歌曲</h1>
                 <div class="row">
                     <label for="">
                         歌名
-                        <input type="text">
                     </label>
+                    <input type="text">
                 </div>
                 <div class="row">
                     <label for="">
                         歌手
-                        <input type="text">
                     </label>
+                    <input type="text">
                 </div>
                 <div class="row">
                     <label for="">
                         外链
-                        <input type="text">
                     </label>
+                    <input type="text">
                 </div>
-                <div class="row">
+                <div class="row actions">
                     <label for="">
                         <button type="submit">保存</button>
                     </label>
