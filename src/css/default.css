@@ -36,6 +36,9 @@ body{
 .newSong.active{
     background: #D4D4D4;
 }
+#songList-container{
+    flex-grow: 1;
+}
 .songList{
     flex-grow: 1;
     text-align: left;
