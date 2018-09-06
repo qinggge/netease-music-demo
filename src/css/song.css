@@ -44,7 +44,7 @@
 	font-size: 18px;
 }
 .song-description p{
-	color: white;
+    color: hsla(0,0%,100%,.6);
 	font-size: 14px;
 	line-height: 24px;
 }
@@ -53,10 +53,12 @@
 }
 .song-description .lyric{
 	height: 72px;
+	margin-top: 48px;
 	overflow: hidden;
 }
 .song-description p.active{
-	color: white;
+	color: rgb(255, 255, 255);
+	font-size: 18px;
 }
 
 .page > .links{
@@ -80,11 +82,4 @@
 .page > .links > a.main{
 	background: #D43B32;
 	color: white;
-}
-
-.lyric > .lines > p{
-    color: hsla(0,0%,100%,.6)
-}
-.lyric > .lines > p.active{
-	color: rgb(255, 255, 255)
 }
