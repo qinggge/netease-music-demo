@@ -30,6 +30,12 @@
                     </label>
                     <input name="cover" type="text" value="__cover__">
                 </div>
+                <div class="row">
+                    <label>
+                        歌词
+                    </label>
+                    <textarea cols=100 rows=10 name="lyrics">__lyrics__</textarea>
+                </div>
                 <div class="row actions">
                     <label>
                         <button type="submit">保存</button>
@@ -38,7 +44,7 @@
             </form>
         `,
         render(data = {}) {
-            let placeholders = ['name', 'url', 'singer', 'id','cover']
+            let placeholders = ['name', 'url', 'singer', 'id', 'cover', 'lyrics']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')
@@ -60,7 +66,8 @@
             singer: '',
             url: '',
             id: '',
-            cover: ''
+            cover: '',
+            lyrics: ''
         },
         update(data){
             var song = AV.Object.createWithoutData('Song', this.data.id)
@@ -68,6 +75,7 @@
             song.set('singer', data.singer)
             song.set('url', data.url)
             song.set('cover', data.cover)
+            song.set('lyrics',data.lyrics)
             return song.save().then((response)=>{
                 Object.assign(this.data,data)
                 return response
@@ -80,6 +88,7 @@
             song.set('singer', data.singer)
             song.set('url', data.url)
             song.set('cover', data.cover)
+            song.set('lyrics',data.lyrics)
             return song.save().then((newSong) => {
                 let {
                     id,
@@ -116,7 +125,8 @@
                         name: '',
                         url: '',
                         id: '',
-                        singer: ''
+                        singer: '',
+                        lyrics: ''
                     }
                 } else {
                     Object.assign(this.model.data, data)
@@ -139,7 +149,7 @@
                 })
         },
         update() {
-            let needs = 'name singer url cover'.split(' ')
+            let needs = 'name singer url cover lyrics'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
