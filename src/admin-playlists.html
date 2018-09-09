@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>歌单管理页面</title>
+    <link rel="stylesheet" href="./css/default.css">
+</head>
+
+<body>
+    <h1>创建歌单</h1>
+    <div class="playlistForm-wrapper">
+        <form class="playlistForm">
+            <div class="row">
+                <label>歌单名<input type="text" name="name"></label>
+            </div>
+            <div class="row">
+                <label>简介<textarea name="summary"></textarea></label>
+            </div>
+            <div class="row">
+                <button type="submit">创建</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
+    <script src="./js/initializers/av.js"></script>
+    <script src="./js/admin/event-hub.js"></script>
+
+    <script>
+        {
+            let view = {
+                el: '.playlistForm-wrapper',
+                init(){
+                    this.$el = $(this.el)
+                    this.$form = this.$el.find('form')
+                }
+
+            }
+            let model = {
+                create(data){
+                    
+                }
+            }
+            let controller = {
+                init(view,model){
+                    this.view = view
+                    this.view.init()
+                    this.model = model
+                    this.bindEvents()
+                },
+                bindEvents(){
+                    this.view.$el.on('submit','form',(e)=>{
+                        e.preventDefault();
+                        let form = this.view.$form.get(0)
+                        let keys = ['name','summary']
+                        let data = {}
+                        keys.reduce((prev,item)=>{
+                            prev[item] = form[item].value
+                            return prev
+                        },data)
+                        console.log(data)
+                        // this.model.create(data)
+                    })
+                }
+            }
+            controller.init(view,model)
+        }
+        // // 微积分课程
+        // var Playlist = AV.Object.createWithoutData('playList', '5b93982f17d0090034c73eec');
+
+        // // 构建 StudentCourseMap 的查询
+        // var query = new AV.Query('PlaylistMap');
+
+        // // 查询所有选择了线性代数的学生
+        // query.equalTo('playlist', Playlist);
+
+        // // 执行查询
+        // query.find().then(function (PlaylistMaps) {
+        //     // studentCourseMaps 是所有 course 等于线性代数的选课对象
+        //     // 然后遍历过程中可以访问每一个选课对象的 student,course,duration,platform 等属性
+        //     PlaylistMaps.forEach(function (scm, i, a) {
+        //         var playlist = scm.get('playlist');
+        //         var author = scm.get('author')
+        //         console.log(author)
+        //     });
+        // });
+
+
+        // 构建关系表
+        // var Playlist = AV.Object.createWithoutData('playList', '5b93a0311b69e6005b52855d')
+
+        // var Song = AV.Object.createWithoutData('Song', '5b8f04e467f35600349a2f67')
+
+        // var PlaylistMap = new AV.Object('PlaylistMap');
+
+        // PlaylistMap.set('author', Song)
+        // PlaylistMap.set('playlist', Playlist)
+
+        // PlaylistMap.save()
+        </script>
+</body>
+
+</html>
