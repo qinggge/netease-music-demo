@@ -1,0 +1,33 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+body{
+    width: 100vw;
+    height: 100vh;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+#playlists{
+    border: 1px solid red;
+    min-width: 300px;
+    min-height: 500px;
+    width: 30%;
+}
+#songsInPlaylist{
+    border: 1px solid red;
+    min-width: 300px;
+    min-height: 500px;
+    width: 30%;
+}
+#addToList{
+    border: 1px solid red;
+    width: 5%;
+    min-width: 50px;
+    min-height: 500px;
+}
+#songs{
+    border: 1px solid red;
+    min-width: 300px;
+    min-height: 500px;
+    width: 30%;
+}
