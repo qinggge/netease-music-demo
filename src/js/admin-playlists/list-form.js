@@ -8,8 +8,10 @@
             render(data = {}){
                 let name = document.querySelector('input[name="name"]')
                 let summary = document.querySelector('textarea[name="summary"]')
+                let cover = document.querySelector('input[name="cover"]')
                 $(name).val(data.name)
                 $(summary).val(data.summary)
+                $(cover).val(data.cover)
             },
             reset(){
                 this.render({})
@@ -24,6 +26,7 @@
                 var playlist = AV.Object.createWithoutData('Playlist', this.data.id)
                 playlist.set('name',data.name)
                 playlist.set('summary',data.summary)
+                playlist.set('cover',data.cover)
                 return playlist.save().then((response)=>{
                     Object.assign(this.data,data)
                     return response
@@ -34,6 +37,7 @@
                 var playlist = new Playlist()
                 playlist.set('name',data.name)
                 playlist.set('summary',data.summary)
+                playlist.set('cover',data.cover)
                 return playlist.save().then((newPlaylist) => {
                     let {
                         id,
@@ -59,7 +63,7 @@
                 this.bindEventHub()
             },
             create(){
-                let needs ='name summary'.split(' ') 
+                let needs ='name summary cover'.split(' ') 
                 let data = {}
                 needs.map((string) => {
                     data[string] = this.view.$el.find(`[name="${string}"]`).val()
@@ -74,7 +78,7 @@
                     })
             },
             update(){
-                let needs = 'name summary'.split(' ')
+                let needs = 'name summary cover'.split(' ')
                 let data = {}
                 needs.map((string)=>{
                     data[string] = this.view.$el.find(`[name="${string}"]`).val()

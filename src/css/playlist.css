@@ -9,25 +9,63 @@ main{
 }
 #playlists{
     border: 1px solid red;
-    min-width: 300px;
+    width: 300px;
     min-height: 500px;
-    width: 30%;
+}
+#playlists ul li{
+    list-style: none;
+    width: 130px;
+    margin: 10px 9px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    height: 185px;
+    overflow: hidden;
+    transition: all 1s;
+    position: relative;
+}
+#playlists ul li::after{
+    content:'';
+    display: block;
+    clear: both;
+}
+#playlists ul li img{
+    width: 130px;
+}
+#playlists ul li p{
+    font-size: 12px;
+    text-align: left;
+}
+#playlists ul li .summary{
+    position: absolute;
+    top: 0px;
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    word-break: break-all;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 0 5px;
+    transition: all 0.5s linear;
+    transform: translateY(-40px);
+}
+#playlists ul li:hover .summary{
+    transform: translateY(0px);
 }
 #songsInPlaylist{
     border: 1px solid red;
-    min-width: 300px;
+    width: 300px;
     min-height: 500px;
-    width: 30%;
 }
 #addToList{
     border: 1px solid red;
-    width: 5%;
-    min-width: 50px;
+    width: 50px;
     min-height: 500px;
 }
 #songs{
     border: 1px solid red;
-    min-width: 300px;
+    width: 300px;
     min-height: 500px;
     width: 30%;
 }

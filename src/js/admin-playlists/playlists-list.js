@@ -10,7 +10,11 @@
             $el.html(this.template)
             let {playlists,selectedePlaylistId} = data
             let liList = playlists.map((playlist)=>{
-                let $li = $('<li></li>').text(playlist.name).attr('data-playlist-id',playlist.id)
+                let $li = $(`<li data-playlist-id="${playlist.id}">
+                            <img src="${playlist.cover}">
+                            <p>${playlist.name}</p>
+                            <p class="summary">${playlist.summary}</p>
+                        </li>`)
                 if(playlist.id === selectedePlaylistId){
                     $li.addClass('active')
                 }
@@ -35,12 +39,33 @@
                 })
                 return playlists
             })
+        },
+        findSongsInList(){
+            // 微积分课程
+            var Playlist = AV.Object.createWithoutData('playList', '5b93982f17d0090034c73eec');
+            
+            // 构建 StudentCourseMap 的查询
+            var query = new AV.Query('PlaylistMap');
+            
+            // 查询所有选择了线性代数的学生
+            query.equalTo('playlist', Playlist);
+            
+            // 执行查询
+            query.find().then(function (PlaylistMaps) {
+                // studentCourseMaps 是所有 course 等于线性代数的选课对象
+                // 然后遍历过程中可以访问每一个选课对象的 student,course,duration,platform 等属性
+                PlaylistMaps.forEach(function (scm, i, a) {
+                    var playlist = scm.get('playlist');
+                    var author = scm.get('author')
+                });
+            });
         }
     }
     let controller = {
         init(view,model){
             this.view = view
             this.model = model
+            this.model.findSongsInList()
             this.bindEvents()
             this.bindEventHub()
             this.getAllPlaylists()
