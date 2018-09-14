@@ -102,7 +102,6 @@
             bindEventHub(){
                 window.eventHub.on('selecePlaylist',(data)=>{
                     this.model.data = data
-                    console.log(this.model.data)
                     this.view.render(this.model.data)
                 })
             }

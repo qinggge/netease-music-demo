@@ -29,6 +29,7 @@
     let model = {
         data: {
             playlists: [],
+            songs:[],
             selectedePlaylistId: undefined,  
         },
         find(){
@@ -40,9 +41,11 @@
                 return playlists
             })
         },
-        findSongsInList(){
+        findSongsInList(playlistId){
             // 微积分课程
-            var Playlist = AV.Object.createWithoutData('playList', '5b93982f17d0090034c73eec');
+            var songList = []
+            this.data.songs = []
+            var Playlist = AV.Object.createWithoutData('playList', playlistId);
             
             // 构建 StudentCourseMap 的查询
             var query = new AV.Query('PlaylistMap');
@@ -51,21 +54,30 @@
             query.equalTo('playlist', Playlist);
             
             // 执行查询
-            query.find().then(function (PlaylistMaps) {
+            query.find().then((PlaylistMaps)=>{
                 // studentCourseMaps 是所有 course 等于线性代数的选课对象
                 // 然后遍历过程中可以访问每一个选课对象的 student,course,duration,platform 等属性
-                PlaylistMaps.forEach(function (scm, i, a) {
-                    var playlist = scm.get('playlist');
-                    var author = scm.get('author')
+                PlaylistMaps.forEach( (scm, i, a)=>{
+                    var song = scm.get('song')
+                    songList.push(song.id)
                 });
-            });
+            }).then(()=>{
+                var query = new AV.Query('Song');
+                for(let i = 0;i<songList.length;i++){
+                    query.get(songList[i]).then((songs)=>{
+                        this.data.songs.push(songs)
+                    }, function (error) {
+                        console.log(error)
+                    });
+                }
+                window.eventHub.emit('songsInList',this.data.songs)
+            })
         }
     }
     let controller = {
         init(view,model){
             this.view = view
             this.model = model
-            this.model.findSongsInList()
             this.bindEvents()
             this.bindEventHub()
             this.getAllPlaylists()
@@ -89,6 +101,7 @@
                     }
                 }
                 window.eventHub.emit('selecePlaylist',JSON.parse(JSON.stringify(data)))
+                this.model.findSongsInList(playlistId)
             })
         },
         bindEventHub(){
