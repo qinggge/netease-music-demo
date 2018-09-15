@@ -68,8 +68,9 @@
                         this.data.songs.push(songs)
                     }, function (error) {
                         console.log(error)
-                    });
+                    })
                 }
+            }).then(()=>{
                 window.eventHub.emit('songsInList',this.data.songs)
             })
         }
