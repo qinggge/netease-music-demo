@@ -10,7 +10,8 @@
             $el.html(this.template)
             let {songs,selectedSongId} = data
             let liList = songs.map((song)=> {
-                let $li = $('<li></li>').text(song.name).attr('data-song-id',song.id)
+                console.log(song)
+                let $li = $('<li></li>').text(song.name).attr('data-song-   id',song.id)
                 if(song.id === selectedSongId){ $li.addClass('active') }
                 return $li
             })
