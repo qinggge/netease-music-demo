@@ -57,6 +57,7 @@
         },
         getSongs(playlistId){
             this.model.find(playlistId).then(()=>{ 
+                console.log(this.model.data.songs)  
                 this.view.render(this.model.data.songs)
             })
         },

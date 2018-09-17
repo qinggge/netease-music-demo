@@ -1,12 +1,15 @@
 {
     let view = {
         el: '#songs',
+        template: `
+            <ul class="songList">
+            </ul>
+        `,
         render(data){
             let $el = $(this.el)
             $el.html(this.template)
             let songs = data
             let liList = songs.map((song)=> {
-                console.log(song)
                 let $li = $('<li></li>').text(song.name).attr('data-song-id',song.id)
                 return $li
             })
@@ -20,13 +23,13 @@
         data:{
             songs:[]
         },
-        findSongs(){
+        find(){
             var query = new AV.Query('Song');
             return query.find().then((songs)=>{
                 this.data.songs = songs.map((song)=>{
                     return {id:song.id, ...song.attributes}
                 })
-                this.data.songs = songs
+                return songs
             })
         }
     }
@@ -37,7 +40,7 @@
             this.getSongs()
         },
         getSongs(){
-            this.model.findSongs().then(()=>{
+            this.model.find().then(()=>{
                 this.view.render(this.model.data.songs)
             })
         }

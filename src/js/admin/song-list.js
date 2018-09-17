@@ -10,7 +10,6 @@
             $el.html(this.template)
             let {songs,selectedSongId} = data
             let liList = songs.map((song)=> {
-                console.log(song)
                 let $li = $('<li></li>').text(song.name).attr('data-song-id',song.id)
                 if(song.id === selectedSongId){ $li.addClass('active') }
                 return $li
@@ -32,7 +31,6 @@
         find(){
             var query = new AV.Query('Song');
             return query.find().then((songs)=>{
-                console.log(songs)
                 this.data.songs = songs.map((song)=>{
                     return {id:song.id, ...song.attributes}
                 })
@@ -52,6 +50,7 @@
         },
         getAllSongs() {
             this.model.find().then(() => {
+                console.log(this.model.data.songs)
                 this.view.render(this.model.data)
             })
         },
