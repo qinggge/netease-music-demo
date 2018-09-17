@@ -11,7 +11,7 @@
             let {songs,selectedSongId} = data
             let liList = songs.map((song)=> {
                 console.log(song)
-                let $li = $('<li></li>').text(song.name).attr('data-song-   id',song.id)
+                let $li = $('<li></li>').text(song.name).attr('data-song-id',song.id)
                 if(song.id === selectedSongId){ $li.addClass('active') }
                 return $li
             })

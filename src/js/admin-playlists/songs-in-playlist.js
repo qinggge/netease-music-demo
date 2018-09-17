@@ -23,7 +23,8 @@
     }
     let model = {
         data:{
-            songs:[]
+            songs:[],
+            allSongs:[]
         },
         find(playlistId){
             var songList = []
@@ -55,7 +56,7 @@
             this.bindEventHub()
         },
         getSongs(playlistId){
-            this.model.find(playlistId).then(()=>{
+            this.model.find(playlistId).then(()=>{ 
                 this.view.render(this.model.data.songs)
             })
         },
