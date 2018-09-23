@@ -21,7 +21,9 @@
     }
     let model = {
         data:{
-            songs:[]
+            songs:[],
+            selectedSongId: undefined,
+            selectStatus: false
         },
         find(){
             var query = new AV.Query('Song');
@@ -38,10 +40,20 @@
             this.view = view
             this.model = model
             this.getSongs()
+            this.bindEvents()
         },
         getSongs(){
             this.model.find().then(()=>{
                 this.view.render(this.model.data.songs)
+            })
+        },
+        bindEvents(){
+            $(this.view.el).on('click','li',(e)=>{
+                $(e.currentTarget).addClass('active').siblings('.active').removeClass('active')
+                let songId = e.currentTarget.getAttribute('data-song-id')
+                this.model.data.selectedSongId = songId
+                this.model.data.selectStatus = true
+                window.eventHub.emit('selectSong',[JSON.parse(JSON.stringify(this.model.data.selectedSongId)),this.model.data.selectStatus])
             })
         }
     }

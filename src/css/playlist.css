@@ -69,3 +69,6 @@ main{
     min-height: 500px;
     width: 30%;
 }
+#songs ul li.active{
+    color: red;
+}

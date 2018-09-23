@@ -10,7 +10,6 @@
             $el.html(this.template)
             let songs = data
             let liList = songs.map((song)=>{
-                console.log(song)
                 let $li = $('<li></li>').text(song.name).attr('data-songInList-id',song.id)
                 $li.addClass('active')
                 return $li
@@ -24,7 +23,8 @@
     let model = {
         data:{
             songs:[],
-            allSongs:[]
+            allSongs:[],
+            playlistId: undefined
         },
         find(playlistId){
             var songList = []
@@ -57,13 +57,18 @@
         },
         getSongs(playlistId){
             this.model.find(playlistId).then(()=>{ 
-                console.log(this.model.data.songs)  
                 this.view.render(this.model.data.songs)
             })
         },
         bindEventHub(){
             window.eventHub.on('songsInList',(playlistId)=>{
+                this.model.data.playlistId = playlistId
                 this.getSongs(playlistId)
+            })
+            window.eventHub.on('addSongToList',()=>{
+                this.model.find(this.model.data.playlistId).then(()=>{ 
+                    this.view.render(this.model.data.songs)
+                })
             })
         }
     }
