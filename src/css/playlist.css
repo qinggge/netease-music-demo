@@ -2,6 +2,9 @@
 body{
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 b, em, h1, h2, h3, h4, h5, h6, strong {
     font-weight: 400;
@@ -9,11 +12,29 @@ b, em, h1, h2, h3, h4, h5, h6, strong {
 main{
     display: flex;
     justify-content: center;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.topbar{
+
+}
+.playlistForm{
+    display: flex;
+}
+.playlistForm .row{
+    margin-right: 30px;
 }
 #playlists{
-    border: 1px solid red;
-    width: 300px;
-    min-height: 500px;
+    border-right: 1px solid #D7D7D7;
+    width: 340px;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 #playlists ul li{
     list-style: none;
@@ -57,20 +78,40 @@ main{
     transform: translateY(0px);
 }
 #songsInPlaylist{
-    border: 1px solid red;
+    border-right: 1px solid #D7D7D7;
     width: 300px;
     min-height: 500px;
 }
+#songsInPlaylist ul li{
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+#songsInPlaylist ul li:nth-child(odd){
+    background: #D7D7D7;
+}
 #addToList{
-    border: 1px solid red;
-    width: 50px;
+    border-right: 1px solid #D7D7D7;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 500px;
 }
 #songs{
-    border: 1px solid red;
     width: 300px;
     min-height: 500px;
     width: 30%;
+}
+#songs ul li{
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+#songs ul li:nth-child(odd){
+    background: #D7D7D7;
 }
 #songs ul li.active{
     color: red;

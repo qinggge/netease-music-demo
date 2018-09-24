@@ -199,7 +199,6 @@ body{
     margin-bottom: 5px;
   }
   section.art .copyright{
-    font-size: 12px;
+    font-size: 16px;
     color: #888;
-    transform: scale(.75);
   }

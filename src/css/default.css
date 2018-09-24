@@ -8,6 +8,10 @@ input{font: inherit;}
 
 body{
     font-size: 12px;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
     line-height: 1.5;
 }
 
@@ -15,7 +19,10 @@ body{
 
 .page{
     display: flex;
-    height: 100vh;
+    height: 600px;
+    width: 1000px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 .page > aside{
     width: 200px;
