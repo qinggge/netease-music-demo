@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>云音乐播放器</title>
+    <link rel="stylesheet" href="./css/playlist.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="playlist-info">
+            <section class="u-plhead pylst_header">
+                <div class="plhead_bg" style="background-image: url('#')"></div>
+                <div class="plhead_wrap">
+                    <div class="plhead_fl lsthd_fl">
+                        <img class="u-img" src="#">
+                    </div>
+                    <div class="plhead_fr">
+                        <h2 class="f-thide2 f-brk lsthd_title"></h2>
+                    </div>
+                </div>
+            </section>
+            <section class="pylst_intro">
+                <div class="u-intro">
+                    <div class="f-brk f-thide3">
+                        <span>
+                            <i></i>
+                        </span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="playlist-songs">
+            <h3 class="u-smtitle" data-reactid="27">歌曲列表</h3>
+            <ol class="u-songs">
+                
+            </ol>
+        </div>
+    </div>
+
+    <script src="//at.alicdn.com/t/font_824251_ir0jp33dwce.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
+    <script src="./js/initializers/av.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/admin/event-hub.js"></script>
+    <script src="./js/playlist/playlist-info.js"></script>
+    <script src="./js/playlist/playlist-songs.js"></script>
+</body>
+
+</html>

@@ -3,6 +3,9 @@ body{
     width: 100vw;
     height: 100vh;
 }
+b, em, h1, h2, h3, h4, h5, h6, strong {
+    font-weight: 400;
+}
 main{
     display: flex;
     justify-content: center;
@@ -71,4 +74,180 @@ main{
 }
 #songs ul li.active{
     color: red;
+}
+
+#app{
+    background: #f8f8f8;
+    min-height: 100%;
+}
+address, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+.u-plhead {
+    position: relative;
+    padding: 30px 10px 30px 15px;
+    overflow: hidden;
+}
+.u-plhead .plhead_bg, .u-plhead .plhead_bg:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.u-plhead .plhead_bg:after {
+    content: " ";
+    background-color: rgba(0,0,0,.25);
+}
+.u-plhead .plhead_wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+.pylst_header .lsthd_fl {
+    position: relative;
+}
+.u-plhead .plhead_fl {
+    position: relative;
+    width: 114px;
+    height: 114px;
+    background-color: #e2e2e3;
+}
+@media screen and (min-width: 360px){
+    .u-plhead .plhead_fl {
+        width: 126px;
+        height: 126px;
+    }
+}
+.u-img {
+    width: 100%;
+    vertical-align: middle;
+}
+.u-plhead .plhead_fr {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-left: 16px;
+}
+.f-brk {
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+}
+.pylst_header .lsthd_title {
+    padding-top: 1px;
+    font-size: 17px;
+    line-height: 1.3;
+    color: #fefefe;
+    height: 44px;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+}
+
+.f-thide2, .f-thide3, .f-thide4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.pylst_intro {
+    position: relative;
+    margin: 0 10px 0 15px;
+    padding-top: 10px;
+    line-height: 19px;
+    color: #666;
+}
+.u-intro {
+    position: relative;
+    padding-bottom: 18px;
+    line-height: 19px;
+    color: #666;
+}
+.f-brk span i{
+    font-size: 14px;
+    font-style: normal;
+}
+.pylst_intro{
+    height: 113px;
+}
+.u-smtitle {
+    height: 23px;
+    line-height: 23px;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #666;
+    background-color: #eeeff0;
+}
+.u-song {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+.u-song .sgi_fl, .u-song .sgi_fr {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+.u-song .sgi_fl {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    width: 40px;
+    font-size: 17px;
+    color: #999;
+}
+.u-song .sgi_fr {
+    position: relative;
+}
+.u-song .sgi_fr, .u-song .sgich_fl {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+.u-song .sgich_fl {
+    padding: 6px 0;
+    width: 0;
+}
+.u-song .sgich_tl {
+    font-size: 17px;
+}
+.f-thide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: normal;
+}
+.u-song .sgich_info {
+    font-size: 12px;
+    color: #888;
+}
+.u-song .sgich_fr {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0 10px;
+}
+.u-hmsprt {
+    background: url(//s3.music.126.net/m/s/img/index_icon_2x.png?5207a28…) no-repeat;
+    background-size: 166px 97px;
+}
+.u-song .sgich_ply {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-position: -24px 0;
+}
+.f-bd-btm{
+    border-bottom: 1px solid #D7D7D7;
 }
