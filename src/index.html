@@ -51,12 +51,12 @@
                     <li class=active data-tab-name="page-1">
                         <div class="text"> 推荐音乐 </div>
                     </li>
-                    <!-- <li data-tab-name="page-2">
+                    <li data-tab-name="page-2">
                         <div class="text">热歌榜</div>
                     </li>
                     <li data-tab-name="page-3">
                         <div class="text">搜索</div>
-                    </li> -->
+                    </li>
                 </ol>
             </section>
         </div>
@@ -118,8 +118,23 @@
             </li>
             <li class="page-2">page 2</li>
             <li class="page-3">
-                <input id="search" type="text" style="background:#EBECEC;">
-                <ol id="searchResult"></ol>
+                <div class="search-wrapper">
+                    <label>
+                        <input id="search" type="text" placeholder="搜索歌曲">
+                    </label>
+                </div>
+                <div class="search-list">
+                    <section class="search-default">
+                        <h3>热门搜索</h3>
+                        <ul>
+                            
+                        </ul>
+                    </section>
+                    <section class="search-result">
+                        <ol id="search">
+                        </ol>
+                    </section>
+                </div>
             </li>
         </ol>
     </div>

@@ -202,3 +202,22 @@ body{
     font-size: 16px;
     color: #888;
   }
+  .page-3 .search-wrapper{
+    width: 95%;
+    margin: 15px auto;
+    background: #EBECEC;
+    height: 30px;
+    border-radius: 15px;
+    padding: 0 30px;
+  }
+  .page-3 .search-wrapper input{
+    width: 100%;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    outline: none;
+    background: transparent;
+  }
+  .page-3 #searchResult{
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
